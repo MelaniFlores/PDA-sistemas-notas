@@ -1,37 +1,32 @@
-#include <iostream>
-#include <iomanip>
 #include "datos.h"
 
-// Opción 1
-
-void registrarEstudiantes() {
+// opcion 1: registrar estudiantes
+void registrarEstudiantes(Estudiante estudiantes[], int& totalEstudiantes) {
+    // primero revisamos que todavia haya espacio en el arreglo
     if (totalEstudiantes >= MAX_ESTUDIANTES) {
-        cout << "\nSe alcanzó el límite de estudiantes.\n";
+        cout << "\n[!] Se alcanzó el límite de estudiantes (" << MAX_ESTUDIANTES << ").\n";
         return;
     }
 
+    cout << "\n--- REGISTRAR ESTUDIANTE ---\n";
     string codigo = leerTexto("Código del estudiante: ");
-    if (codigo.empty()) {
-        cout << "El código es obligatorio.\n";
-        return;
-    }
-    if (buscarEstudiante(codigo) != -1) {
-        cout << "Ya existe un estudiante con ese código.\n";
+
+    // el codigo no se puede repetir
+    if (buscarEstudiante(estudiantes, totalEstudiantes, codigo) != -1) {
+        cout << "[!] Ya existe un estudiante con ese código.\n";
         return;
     }
 
     string nombre = leerTexto("Nombre del estudiante: ");
-    if (nombre.empty()) {
-        cout << "El nombre es obligatorio.\n";
-        return;
-    }
 
+    // guardamos al estudiante en la siguiente posicion libre
     int i = totalEstudiantes;
-    codigos[i] = codigo;
-    nombres[i] = nombre;
-    for (int j = 0; j < NUM_NOTAS; j++) notas[i][j] = 0;
-    promedios[i] = 0;
-    notasRegistradas[i] = false;
+    estudiantes[i].codigo = codigo;
+    estudiantes[i].nombre = nombre;
+    for (int j = 0; j < NUM_NOTAS; j++) estudiantes[i].notas[j] = 0;
+    estudiantes[i].promedio = 0;
+    estudiantes[i].estado = "Sin calificar";
+    estudiantes[i].notasRegistradas = false;   // todavia no tiene notas
     totalEstudiantes++;
 
     cout << "Estudiante registrado correctamente.\n";
