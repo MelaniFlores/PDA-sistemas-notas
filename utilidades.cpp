@@ -68,7 +68,6 @@ void pausar() {
     cin.get();
 }
 
-// cls en windows, clear en linux/mac
 void limpiarPantalla() {
 #ifdef _WIN32
     system("cls");

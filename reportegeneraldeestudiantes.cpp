@@ -41,3 +41,5 @@ void reporteGeneralEstudiantes(const Estudiante estudiantes[], int totalEstudian
     cout << "==========================================================================\n";
     cout << "Total de estudiantes: " << totalEstudiantes << endl;
 }
+
+

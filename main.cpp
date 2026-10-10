@@ -1,6 +1,6 @@
 #include "datos.h"
 
-// muestra el menu igual que en el pdf
+// menu
 void mostrarMenu() {
     cout << "========================================\n";
     cout << " SISTEMA DE GESTIÓN DE CALIFICACIONES\n";

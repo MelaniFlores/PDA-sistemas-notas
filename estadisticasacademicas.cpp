@@ -12,7 +12,6 @@ void estadisticasAcademicas(const Estudiante estudiantes[], int totalEstudiantes
     int evaluados = 0;
     double sumaPromedios = 0.0;
 
-    // recorremos el arreglo y contamos solo a los que tienen notas
     for (int i = 0; i < totalEstudiantes; i++) {
         if (estudiantes[i].notasRegistradas) {
             evaluados++;
